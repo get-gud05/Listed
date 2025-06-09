@@ -1,0 +1,27 @@
+.input-ar button:hover {
+    transform: scale(1.1);
+    background:rgb(39, 167, 206);
+}
+
+#task-list li:hover {
+    box-shadow : 0 0 2px rgba(0, 0, 0, 0.316);
+}
+
+#task-list li .checkbox:checked {
+    /* background : rgb(86, 183, 212); */
+    background : rgb(107, 241, 131);
+    transform : scale(1.1);
+}
+
+#task-list li .checkbox:checked::before {
+    content: '\2713';
+    color: white;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    position : absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
