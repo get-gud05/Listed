@@ -121,6 +121,32 @@ body {
     margin-left: 10px;
     word-wrap: break-word;
 }
+
+.task-buttons {
+    display : flex;
+    gap : 10px;
+    margin-right : auto;
+}
+
+.task-buttons button {
+    background : rgb(126, 184, 231);
+    border : none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color : white;
+    font-size: 0.8rem;
+    cursor : pointer;
+    transition : all 0.2s ease;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-buttons .deletebtn {
+    background : rgb(226, 145, 145);
+
+}
 .emptyimage {
     max-width : 100%;
     height : auto ;
