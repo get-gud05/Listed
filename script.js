@@ -10,6 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
         todoscontainer.style.width = taskList.children.length>0 ? '100%' : '50%';    
     }; 
 
+    const saveTaskToStorage = () => {
+        const tasks = Array.from(taskList.querySelectorAll('li')).map(li=> ({
+            text: li.querySelector('span').textContent,
+            completed:li.querySelector('.checkbox').checked
+        }));
+        localStorage.setItem('tasks',JSON.stringify(tasks));
+    };
+
+    const LoadTasks = () => {
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        savedTasks.forEach(({text,completed}) => addTask(text,completed,false));
+        ToggleImg();
+    }
+
 
     const addTask = (text,completed=false) => {
         const taskText = text || taskInput.value.trim();
@@ -42,24 +56,28 @@ document.addEventListener('DOMContentLoaded', () => {
             editBtn.disabled=isChecked;
             editBtn.style.opacity=isChecked?'0.5':'1';
             editBtn.style.pointerEvents=isChecked?'none':'auto';
+            saveTaskToStorage();
         });
          
         editBtn.addEventListener('click',() => {
-           if(!checkbox.checked) {
-            taskInput.value = li.querySelector('span').textContent;
-            li.remove();
-            ToggleImg();
-           } 
+            if(!checkbox.checked) {
+                taskInput.value = li.querySelector('span').textContent;
+                li.remove();
+                ToggleImg();
+                saveTaskToStorage();
+            } 
         });
 
         li.querySelector('.deletebtn').addEventListener('click',()=> {
             li.remove();
             ToggleImg();
+            saveTaskToStorage();
         });
 
         taskList.appendChild(li);
         taskInput.value ='';
         ToggleImg();
+        saveTaskToStorage();
     };
 
     addTaskbtn.addEventListener('click', (e) => {
@@ -72,4 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addTask(); 
         }
     });
+
+    LoadTasks();
 });

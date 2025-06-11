@@ -1,0 +1,19 @@
+@media (max-width : 600px) {
+    .container {
+        margin : 0 20px;
+        padding : 0 10px;
+    }
+
+    .to-do {
+        padding : 1.5rem;
+        gap : 20px;
+    }
+
+    .input-ar {
+        font-size: 1rem;
+    }
+
+    #task-list li {
+        font-size :1 rem; 
+    }
+}
