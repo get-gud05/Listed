@@ -1,3 +1,21 @@
+@keyframes scrollltr {
+    0% {
+        transform : translateX(-100vw);
+    }
+    100% {
+        transform : translateX(100vw);
+    }
+}
+
+@keyframes scrollrtl {
+    0% {
+        transform : translateX(100vw);
+    }
+    100% {
+        transform : translateX(-100vw);
+    }
+}
+
 .input-ar button:hover {
     transform: scale(1.1);
     background:rgb(39, 167, 206);
@@ -8,7 +26,6 @@
 }
 
 #task-list li .checkbox:checked {
-    /* background : rgb(86, 183, 212); */
     background : rgb(107, 241, 131);
     transform : scale(1.1);
 }

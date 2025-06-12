@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const bgtext = document.getElementById('bgtext');
+    const words = ['LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED','LISTED'];
+    for(let i=0;i<30;i++) {
+        const line = document.createElement('div');
+        line.className='bg-line';
+        line.style.top=(i*120)+'px';
+        line.style.animationDelay=(i*0.3)+'s';
+
+        if(i%2==0) line.classList.add('ltr');
+        else line.classList.add('rtl');
+        
+        let lineText='';
+        for(let j=0;j<=15;j++) {
+            lineText += words[j%words.length] + ' ';
+        }
+        line.textContent=lineText;
+        bgtext.appendChild(line);
+    }
+
+
+
     const taskInput = document.getElementById('task-input');
     const addTaskbtn= document.getElementById('addtask-btn');   
     const taskList = document.getElementById('task-list');
